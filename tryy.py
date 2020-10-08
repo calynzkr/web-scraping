@@ -3,24 +3,25 @@ import requests
 from bs4 import BeautifulSoup
 
 #extract info from web for 50 times
+URL = "http://3.95.249.159:8000/random_company"
 def webscraper():
     n=0
     r = []
     while n<50:
-        tmp = requests.get("http://3.95.249.159:8000/random_company").text    
+        tmp = requests.get(URL).text    
         r = r + [tmp]
         n=n+1
 
     sv=[]
     H=[]
     for i in r:
-        soup = BeautifulSoup(i, 'html.parser')
-        sv.append(soup.find('li').text)
+        soup = BeautifulSoup(i, "html.parser")
+        sv.append(soup.find("li").text)
         ve = soup.get_text()
         k = ve.splitlines()
     
         for j in k:
-            if j.startswith('Purpose'):
+            if j.startswith("Purpose"):
                 H.append(j)
 
     fi = open("hw2results.txt", "a") 
