@@ -1,6 +1,8 @@
+#import libraries
 import requests
 from bs4 import BeautifulSoup
 
+#extract info from web for 50 times
 def webscraper():
     n=0
     r = []
