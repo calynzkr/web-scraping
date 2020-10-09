@@ -13,7 +13,7 @@ def webscraper():
         n=n+1
 
     sv=[]
-    H=[]
+    al=[]
     for i in r:
         soup = BeautifulSoup(i, "html.parser")
         sv.append(soup.find("li").text)
@@ -22,7 +22,7 @@ def webscraper():
     
         for j in k:
             if j.startswith("Purpose"):
-                H.append(j)
+                al.append(j)
 
     fi = open("hw2results.txt", "a") 
 
@@ -31,7 +31,7 @@ def webscraper():
     fi.close()  
     fi = open("hw2results.txt", "a") 
       
-    for g in H:
+    for g in al:
         fi.write(g + "\n")
     fi= open("hw2results.txt", "r")
     fi.read()
